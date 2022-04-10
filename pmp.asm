@@ -24,6 +24,12 @@ pmp:	include	virus.inc
 	push	ds
 	push	es
 	mov	ds,ax
+	
+	print_mes   pmdlogo1
+	print_mes   pmdlogo2
+	print_mes   pmdlogo3
+	print_mes   pmdlogo4
+	print_mes   pmdlogo5
 	print_mes	pmp_title_mes
 	call	check_pmd
 	jc	not_resident
@@ -585,7 +591,7 @@ over_error:
 ;	Datas
 ;==============================================================================
 
-read_error_mes	db	"File can not found!",13,10,"$"
+read_error_mes	db	"File not found!",13,10,"$"
 
 mstart_MES	DB	"Started playing.",13,10,13,10,"$"
 
@@ -622,11 +628,18 @@ pmp_USAGE_MES	DB	"Usage:  pmp /{P|S|Fn|E}",13,10
 		db	"   filename  ... stop/load(/pcmset)/play(/put)",13,10
 		db	"$"
 
-pmp_title_mes	db	"Professional Music Driver [P.M.D.] player for PMD ver4.8t [For IBMPC]",13,10
+pmp_title_mes	db	"Professional Music Driver [P.M.D.] Player for PMD ver4.8t [For IBMPC]",13,10
 		db	"                  Programmed by M.Kajihara, Translated by OctSL. ",date,13,10,13,10,"$"
 
 memo_flg	db	0
 pcm_flg		db	0
+
+eof	equ	"$"
+pmdlogo1 db 13,10,"|IIII\         |\   /|      |IIII\   for  |     |III\ IIIII (PC/AT)",13,10,eof
+pmdlogo2 db "||   ||        ||\ /||      ||   ||       |     |___/   |   ",13,10,eof
+pmdlogo3 db "||III/         ||   ||      ||III/        |____ |       |   ",13,10,eof
+pmdlogo4 db "||             ||   ||      ||            ",13,10,eof
+pmdlogo5 db "|| rofessional ||   || usic || layer      Version 1.0a-b6",13,10,13,10,eof
 
 	include	viruschk.inc	;ÉEÉCÉãÉXä¥êıcheck
 
